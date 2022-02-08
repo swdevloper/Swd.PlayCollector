@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Swd.PlayCollector.Business.Model")]
+[assembly: AssemblyTitle("Swd.PlayCollectory.Business.Model")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Swd.PlayCollector.Business.Model")]
+[assembly: AssemblyProduct("Swd.PlayCollectory.Business.Model")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("602b115f-b516-4d49-922e-d79705511aa3")]
+[assembly: Guid("47c9c795-7c12-437a-b46e-febb947e7a14")]
 
 // Version information for an assembly consists of the following four values:
 //

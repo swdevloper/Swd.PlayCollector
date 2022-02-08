@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Swd.PlayCollector.Business.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Swd.PlayCollectorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="t100CollectionItem">
           <Key>
             <PropertyRef Name="COLId" />
@@ -23,7 +23,7 @@
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
         </EntityType>
-        <EntityContainer Name="SwdPlayCollectorBusinessModelStoreContainer">
+        <EntityContainer Name="SwdPlayCollectorModelStoreContainer">
           <EntitySet Name="t100CollectionItem" EntityType="Self.t100CollectionItem" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -56,7 +56,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SwdPlayCollectorBusinessModelStoreContainer" CdmEntityContainer="PlayCollectorDb">
+        <EntityContainerMapping StorageEntityContainer="SwdPlayCollectorModelStoreContainer" CdmEntityContainer="PlayCollectorDb">
           <EntitySetMapping Name="CollectionItems">
             <EntityTypeMapping TypeName="Swd.PlayCollector.Business.Model.CollectionItem">
               <MappingFragment StoreEntitySet="t100CollectionItem">

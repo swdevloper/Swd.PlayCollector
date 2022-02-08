@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Swd.PlayCollector.Business.Model
+namespace Swd.PlayCollectory.Business.Model
 {
     using System;
     using System.Collections.Generic;
