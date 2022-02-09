@@ -48,8 +48,9 @@ namespace Swd.PlayCollector.Test
 
 
         [TestMethod()]
-        [DeploymentItem("D:\\Projekte\\SWDeveloper2021\\Swd.Daten\\Testdaten.mdb")]
-        [DataSource("MyJetDataSource")]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "|DataDirectory|\\TestData.csv", "TestData#csv", DataAccessMethod.Sequential), DeploymentItem("TestData.csv")]
+        //[DeploymentItem("D:\\Projekte\\SWDeveloper2021\\Swd.Daten\\Testdaten.mdb")]
+        //[DataSource("MyJetDataSource")]
         public void Add_MultipleCollectionItems()
         {
             //Testwerte vorbereiten
