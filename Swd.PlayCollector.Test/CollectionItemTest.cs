@@ -12,7 +12,7 @@ namespace Swd.PlayCollector.Test
     [TestClass]
     public class TestCollectionItem
     {
-        //HACK
+        //HACK: Notwendig weil SqlProviderServices.dll sonst nicht kopiert wird
         private static string _workAround = typeof(SqlProviderServices).ToString();
      
         
@@ -32,11 +32,8 @@ namespace Swd.PlayCollector.Test
         public void Add_CollectionItem(double price)
         {
             //Testwerte vorbereiten
-            CollectionItem item = new CollectionItem();
-            item.Name = String.Format("CollectionItem Test {0}", DateTime.Now);
+            CollectionItem item = GetCollectionItem();
             item.Price = Convert.ToDecimal(price);
-            item.CreatedBy = "Marcel";
-            item.Created = DateTime.Now;
 
             //Test durchführen
             CollectionItemRepository repo = new CollectionItemRepository();
@@ -45,6 +42,83 @@ namespace Swd.PlayCollector.Test
             //Test auswerten
             Assert.AreNotEqual(0, item.Id);
         }
+
+
+        [TestMethod]
+        public void Select_CollectionItem()
+        {
+            //Testwerte vorbereiten
+            CollectionItem item = GetCollectionItem();
+
+            CollectionItemRepository repo = new CollectionItemRepository();
+            repo.Add(item);
+
+            int numberOfRecords = repo.Select().Count;
+            Assert.AreNotEqual(0, numberOfRecords);
+        }
+
+
+
+        [TestMethod]
+        public void SelectById_CollectionItem()
+        {
+            //Testwerte vorbereiten
+            CollectionItem item = GetCollectionItem();
+            
+            CollectionItemRepository repo = new CollectionItemRepository();
+            repo.Add(item);
+
+            CollectionItem savedCollectionItem = repo.SelectById(item.Id);
+            Assert.IsNotNull(savedCollectionItem);
+        }
+
+
+
+
+        [TestMethod]
+        public void Update_CollectionItem()
+        {
+            //TODO Code durch Methodenaufruf ersetzen
+            //Testwerte vorbereiten
+            string oldName = String.Format("{0}", Guid.NewGuid());
+
+            CollectionItem item = GetCollectionItem();
+            item.Name = oldName;
+
+            CollectionItemRepository repo = new CollectionItemRepository();
+            repo.Add(item);
+
+
+            CollectionItem savedCollectionItem = repo.SelectById(item.Id);
+            string newName = String.Format("{0}", Guid.NewGuid());
+            savedCollectionItem.Name = newName;
+            repo.Update(savedCollectionItem);
+
+            CollectionItem updatedItem = repo.SelectById(item.Id);
+            Assert.AreNotEqual(oldName, updatedItem.Name);
+
+        }
+
+
+
+        [TestMethod]
+        public void Delete_CollectionItem()
+        {
+            //Testwerte vorbereiten
+            CollectionItem item = GetCollectionItem();
+
+            CollectionItemRepository repo = new CollectionItemRepository();
+            repo.Add(item);
+
+            CollectionItem savedCollectionItem = repo.SelectById(item.Id);
+            Assert.IsNotNull(savedCollectionItem);
+
+            repo.Delete(item.Id);
+
+            CollectionItem deletedItem = repo.SelectById(item.Id);
+            Assert.IsNull(deletedItem);
+        }
+
 
 
         [TestMethod()]
@@ -54,11 +128,9 @@ namespace Swd.PlayCollector.Test
         public void Add_MultipleCollectionItems()
         {
             //Testwerte vorbereiten
-            CollectionItem item = new CollectionItem();
-            item.Name = String.Format("CollectionItem Test {0}", DateTime.Now);
+            CollectionItem item = GetCollectionItem();
             item.Price = Convert.ToDecimal(TestContext.DataRow[0]);
-            item.CreatedBy = "Marcel";
-            item.Created = DateTime.Now;
+            
 
             //Test durchführen
             CollectionItemRepository repo = new CollectionItemRepository();
@@ -67,6 +139,21 @@ namespace Swd.PlayCollector.Test
             //Test auswerten
             Assert.AreNotEqual(0, item.Id);
         }
+
+
+
+
+        private CollectionItem GetCollectionItem()
+        {
+            CollectionItem item = new CollectionItem();
+            item.Name = String.Format("Test {0}", Guid.NewGuid());
+            item.Price = 0;
+            item.CreatedBy = "Marcel";
+            item.Created = DateTime.Now;
+            return item;
+
+        }
+
 
 
     }
