@@ -52,7 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionItemRepository.cs" />
+    <Compile Include="CollectionItemRepositorySimple.cs" />
     <Compile Include="GenericRepository.cs" />
+    <Compile Include="ICollectionItemRepository.cs" />
     <Compile Include="IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

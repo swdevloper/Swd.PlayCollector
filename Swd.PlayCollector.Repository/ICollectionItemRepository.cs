@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace Swd.PlayCollector.Repository
 {
 
-
-    public class CollectionItemRepository: GenericRepository<CollectionItem, PlayCollectorDb>, ICollectionItemRepository
+    public interface ICollectionItemRepository: IGenericRepository<CollectionItem>
     {
 
 
