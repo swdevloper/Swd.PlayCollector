@@ -31,6 +31,10 @@ namespace Swd.PlayCollector.Test
         [DataRow(-10.0)]
         public void Add_CollectionItem(double price)
         {
+         
+            CollectionItemRepository rep = new CollectionItemRepository();
+
+            
             //Testwerte vorbereiten
             CollectionItem item = GetCollectionItem();
             item.Price = Convert.ToDecimal(price);

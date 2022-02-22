@@ -15,6 +15,12 @@ namespace Swd.PlayCollector.Repository
     public class CollectionItemRepository
     {
 
+        public CollectionItemRepository()
+        {
+
+        }
+
+
         //CRUD
         //C -> Create (Add)
         //R -> Read (Select)
