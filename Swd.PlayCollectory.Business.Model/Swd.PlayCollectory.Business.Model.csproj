@@ -75,6 +75,9 @@
       <DependentUpon>playcollectormodel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Theme.cs">
+      <DependentUpon>playcollectormodel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

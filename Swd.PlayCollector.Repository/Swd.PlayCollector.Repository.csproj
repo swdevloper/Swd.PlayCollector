@@ -51,9 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ThemeRepository.cs" />
     <Compile Include="CollectionItemRepository.cs" />
     <Compile Include="CollectionItemRepositorySimple.cs" />
     <Compile Include="GenericRepository.cs" />
+    <Compile Include="IThemeRepository.cs" />
     <Compile Include="ICollectionItemRepository.cs" />
     <Compile Include="IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

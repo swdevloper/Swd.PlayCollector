@@ -26,5 +26,6 @@ namespace Swd.PlayCollectory.Business.Model
         }
     
         public virtual DbSet<CollectionItem> CollectionItems { get; set; }
+        public virtual DbSet<Theme> Themes { get; set; }
     }
 }

@@ -23,8 +23,16 @@
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
         </EntityType>
+        <EntityType Name="t800Theme">
+          <Key>
+            <PropertyRef Name="THEId" />
+          </Key>
+          <Property Name="THEId" Type="int" Nullable="false" />
+          <Property Name="THEName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="SwdPlayCollectorModelStoreContainer">
           <EntitySet Name="t100CollectionItem" EntityType="Self.t100CollectionItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t800Theme" EntityType="Self.t800Theme" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -50,7 +58,15 @@
         </EntityType>
         <EntityContainer Name="PlayCollectorDb" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CollectionItems" EntityType="Swd.PlayCollector.Business.Model.CollectionItem" />
+          <EntitySet Name="Themes" EntityType="Swd.PlayCollector.Business.Model.Theme" />
         </EntityContainer>
+        <EntityType Name="Theme">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -73,6 +89,14 @@
                 <ScalarProperty Name="Updated" ColumnName="Updated" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Themes">
+            <EntityTypeMapping TypeName="Swd.PlayCollector.Business.Model.Theme">
+              <MappingFragment StoreEntitySet="t800Theme">
+                <ScalarProperty Name="Name" ColumnName="THEName" />
+                <ScalarProperty Name="Id" ColumnName="THEId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
