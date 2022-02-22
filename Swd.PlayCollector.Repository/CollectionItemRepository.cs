@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace Swd.PlayCollector.Repository
 {
+
+
     public class CollectionItemRepository
     {
 
@@ -39,6 +41,8 @@ namespace Swd.PlayCollector.Repository
             return collectionItems;
         }
 
+
+
         //ToDo: Schlüsselfeldd durch allgemeines Objekt ersetzen
         public CollectionItem SelectById(long id)
         {
@@ -52,6 +56,7 @@ namespace Swd.PlayCollector.Repository
             CollectionItem item = db.CollectionItems.Find(id);
             return item;
         }
+
 
 
         public void Add(CollectionItem item)
