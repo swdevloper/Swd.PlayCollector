@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Swd.PlayCollector.Business\Swd.PlayCollector.Business.csproj" />
     <ProjectReference Include="..\Swd.PlayCollectory.Business.Model\Swd.PlayCollectory.Business.Model.csproj" />
   </ItemGroup>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Swd.PlayCollector.Business;
+using Swd.PlayCollectory.Business.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,15 @@ namespace Swd.PlayCollector.Gui
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+
+            CollectionItemManager manager = new CollectionItemManager();
+            List<CollectionItem> itemList = manager.GetAll().ToList();
+            this.lstItem.ItemsSource = itemList;
+
         }
     }
 }
