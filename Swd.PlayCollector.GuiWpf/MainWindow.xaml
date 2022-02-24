@@ -1,0 +1,29 @@
+﻿<Window x:Class="Swd.PlayCollector.GuiWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Swd.PlayCollector.GuiWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="75*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="PlayCollector" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="20" />
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical"  >
+            <ListBox Height="300" x:Name="lstItem"  />
+            <Button Content="Laden" x:Name="btnLoad"   Click="btnLoad_Click"   />
+            <Button Content="Neu" x:Name="btnNew"  />
+        </StackPanel>
+
+    </Grid>
+</Window>
