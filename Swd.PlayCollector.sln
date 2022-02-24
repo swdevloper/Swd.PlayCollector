@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swd.PlayCollector.Test", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swd.PlayCollector.Business", "Swd.PlayCollector.Business\Swd.PlayCollector.Business.csproj", "{489FC25F-0666-4293-A121-E2B56AA849DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swd.PlayCollector.Gui", "Swd.PlayCollector.Gui\Swd.PlayCollector.Gui.csproj", "{691B418C-1EBD-46A7-B090-A3CDEF5E1B73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{489FC25F-0666-4293-A121-E2B56AA849DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{489FC25F-0666-4293-A121-E2B56AA849DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{489FC25F-0666-4293-A121-E2B56AA849DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{691B418C-1EBD-46A7-B090-A3CDEF5E1B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{691B418C-1EBD-46A7-B090-A3CDEF5E1B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{691B418C-1EBD-46A7-B090-A3CDEF5E1B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{691B418C-1EBD-46A7-B090-A3CDEF5E1B73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
