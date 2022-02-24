@@ -59,6 +59,7 @@
     <Compile Include="CollectionItem.cs">
       <DependentUpon>playcollectormodel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CollectionItemPartial.cs" />
     <Compile Include="playcollectormodel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

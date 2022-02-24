@@ -30,11 +30,16 @@ namespace Swd.PlayCollector.GuiWpf
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
-
             CollectionItemManager manager = new CollectionItemManager();
             List<CollectionItem> itemList = manager.GetAll().ToList();
             this.lstItem.ItemsSource = itemList;
+        }
 
+
+
+        private void lstItem_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CollectionItem selectedItem = e.AddedItems[0] as CollectionItem;
         }
     }
 }

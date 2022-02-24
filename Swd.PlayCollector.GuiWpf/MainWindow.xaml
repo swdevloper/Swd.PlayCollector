@@ -20,7 +20,9 @@
         <Label Content="PlayCollector" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="20" />
 
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical"  >
-            <ListBox Height="300" x:Name="lstItem"  />
+            <ListBox Height="300" x:Name="lstItem" SelectionMode="Single" DisplayMemberPath="DisplayName" SelectedValuePath="Id" SelectionChanged="lstItem_SelectionChanged"       />
+            
+            
             <Button Content="Laden" x:Name="btnLoad"   Click="btnLoad_Click"   />
             <Button Content="Neu" x:Name="btnNew"  />
         </StackPanel>
