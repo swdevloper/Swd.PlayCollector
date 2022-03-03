@@ -30,16 +30,41 @@ namespace Swd.PlayCollector.GuiWpf
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
-            CollectionItemManager manager = new CollectionItemManager();
-            List<CollectionItem> itemList = manager.GetAll().ToList();
-            this.lstItem.ItemsSource = itemList;
+            LoadItems();
         }
 
 
 
         private void lstItem_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CollectionItem selectedItem = e.AddedItems[0] as CollectionItem;
+            if (e.AddedItems.Count > 0)
+            {
+                CollectionItem selectedItem = e.AddedItems[0] as CollectionItem;
+                txbNumber.Text = selectedItem.Number; 
+                txbName.Text = selectedItem.Name;   
+            }
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadItems();
+        }
+
+
+
+        private void LoadItems()
+        {
+            CollectionItemManager manager = new CollectionItemManager();
+            List<CollectionItem> itemList = manager.GetAll().ToList();
+            this.lstItem.ItemsSource = itemList;
+
+        }
+
+        private void btnNew_Click(object sender, RoutedEventArgs e)
+        {
+            txbName.Text = String.Empty;
+            txbNumber.Text= String.Empty;
         }
     }
 }

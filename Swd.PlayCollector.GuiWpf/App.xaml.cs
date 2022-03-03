@@ -13,5 +13,7 @@ namespace Swd.PlayCollector.GuiWpf
     /// </summary>
     public partial class App : Application
     {
+
+
     }
 }
