@@ -16,5 +16,10 @@ namespace Swd.PlayCollectory.Business.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public System.DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
+        public Nullable<System.DateTime> Updated { get; set; }
+        public string UpdatedBy { get; set; }
+        public byte[] Timestamp { get; set; }
     }
 }
