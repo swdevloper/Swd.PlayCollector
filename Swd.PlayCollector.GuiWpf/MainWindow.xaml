@@ -44,8 +44,8 @@
             <TextBox x:Name="txbNumber" Grid.Row="0" Grid.Column="1" Height="30" VerticalContentAlignment="Center" />
             <TextBox x:Name="txbName" Grid.Row="1" Grid.Column="1" Height="30" VerticalContentAlignment="Center" />
             <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="btnDelete" Content="Delete" Width="120" Height="30" Margin="5" Padding="5"/>
-                <Button x:Name="btnSave" Content="Save" Width="120" Height="30" Margin="5" Padding="5"/>
+                <Button x:Name="btnDelete" Content="Delete" Width="120" Height="30" Margin="5" Padding="5" Click="btnDelete_Click"/>
+                <Button x:Name="btnSave" Content="Save" Width="120" Height="30" Margin="5" Padding="5" Click="btnSave_Click"/>
             </StackPanel>
 
         </Grid>
