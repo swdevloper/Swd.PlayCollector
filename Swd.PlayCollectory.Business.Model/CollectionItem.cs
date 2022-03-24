@@ -29,6 +29,6 @@ namespace Swd.PlayCollectory.Business.Model
         public byte[] Timestamp { get; set; }
         public Nullable<int> COL_THEId { get; set; }
     
-        public virtual Theme t800Theme { get; set; }
+        public virtual Theme Theme { get; set; }
     }
 }

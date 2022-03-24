@@ -78,7 +78,7 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="COL_THEId" Type="Int32" />
-          <NavigationProperty Name="t800Theme" Relationship="Swd.PlayCollector.Business.Model.FK_t100CollectionItem_t800Theme" FromRole="CollectionItem" ToRole="Theme" />
+          <NavigationProperty Name="Theme" Relationship="Swd.PlayCollector.Business.Model.FK_t100CollectionItem_t800Theme" FromRole="CollectionItem" ToRole="Theme" />
         </EntityType>
         <EntityContainer Name="PlayCollectorDb" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CollectionItems" EntityType="Swd.PlayCollector.Business.Model.CollectionItem" />
@@ -99,7 +99,7 @@
           <Property Name="Updated" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
-          <NavigationProperty Name="t100CollectionItem" Relationship="Swd.PlayCollector.Business.Model.FK_t100CollectionItem_t800Theme" FromRole="Theme" ToRole="CollectionItem" />
+          <NavigationProperty Name="CollectionItems" Relationship="Swd.PlayCollector.Business.Model.FK_t100CollectionItem_t800Theme" FromRole="Theme" ToRole="CollectionItem" />
         </EntityType>
         <Association Name="FK_t100CollectionItem_t800Theme">
           <End Type="Swd.PlayCollector.Business.Model.Theme" Role="Theme" Multiplicity="0..1" />

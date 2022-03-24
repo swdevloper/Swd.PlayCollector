@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using log4net;
 using System.Reflection;
+using Swd.PlayCollector.GuiWpf.View;
 
 namespace Swd.PlayCollector.GuiWpf
 {
@@ -25,7 +26,9 @@ namespace Swd.PlayCollector.GuiWpf
             Log.Debug(string.Format("{0} Application starting", MethodBase.GetCurrentMethod().Name));
             
 
-            MainWindow w = new MainWindow();
+            fMain w = new fMain();
+            w.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            w.Title = "PlayCollector";
             w.Show();
 
 

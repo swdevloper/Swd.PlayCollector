@@ -17,7 +17,7 @@ namespace Swd.PlayCollectory.Business.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Theme()
         {
-            this.t100CollectionItem = new HashSet<CollectionItem>();
+            this.CollectionItems = new HashSet<CollectionItem>();
         }
     
         public int Id { get; set; }
@@ -29,6 +29,6 @@ namespace Swd.PlayCollectory.Business.Model
         public byte[] Timestamp { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CollectionItem> t100CollectionItem { get; set; }
+        public virtual ICollection<CollectionItem> CollectionItems { get; set; }
     }
 }

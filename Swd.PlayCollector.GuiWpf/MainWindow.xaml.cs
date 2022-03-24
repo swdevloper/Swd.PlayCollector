@@ -112,6 +112,30 @@ namespace Swd.PlayCollector.GuiWpf
 
         }
 
+        private void btnLoadTheme_Click(object sender, RoutedEventArgs e)
+        {
+            // CollectionItemManager manager = new CollectionItemManager();
+            // List<CollectionItem> itemList = manager.GetAll().ToList();
+            // foreach (var item in itemList)
+            // {
+            //     string theme = item.Theme.Name;
+            //}
 
+
+            PlayCollectorDb db = new PlayCollectorDb();
+            List<Theme> themeList = new List<Theme>();
+            themeList = db.Themes.ToList();
+            foreach (Theme theme in themeList)
+            {
+                foreach (CollectionItem item in theme.CollectionItems)
+                {
+                    string name = item.Name;
+                }
+
+            }
+
+
+
+        }
     }
 }

@@ -20,6 +20,7 @@
         <Label Content="PlayCollector" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="20" />
 
         <DockPanel Grid.Row="1" Grid.Column="0" LastChildFill="True"   >
+            <Button Content="Load Theme" x:Name="btnLoadTheme"   Click="btnLoadTheme_Click" DockPanel.Dock="Bottom" Margin="5" Padding="5"   />
             <Button Content="Aktualisieren" x:Name="btnLoad"   Click="btnLoad_Click" DockPanel.Dock="Bottom" Margin="5" Padding="5"   />
             <Button Content="Neu" x:Name="btnNew" DockPanel.Dock="Bottom" Margin="5"  Padding="5" Click="btnNew_Click"/>
             <ListBox x:Name="lstItem" SelectionMode="Single" DisplayMemberPath="DisplayName" SelectedValuePath="Id" SelectionChanged="lstItem_SelectionChanged" Margin="5"      />
