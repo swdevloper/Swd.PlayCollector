@@ -14,6 +14,12 @@ namespace Swd.PlayCollectory.Business.Model
     
     public partial class Theme
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Theme()
+        {
+            this.t100CollectionItem = new HashSet<CollectionItem>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public System.DateTime Created { get; set; }
@@ -21,5 +27,8 @@ namespace Swd.PlayCollectory.Business.Model
         public Nullable<System.DateTime> Updated { get; set; }
         public string UpdatedBy { get; set; }
         public byte[] Timestamp { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CollectionItem> t100CollectionItem { get; set; }
     }
 }

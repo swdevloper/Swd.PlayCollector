@@ -5,13 +5,12 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Swd.PlayCollectorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Swd.PlayCollector.dbo.Log' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="t100CollectionItem">
           <Key>
             <PropertyRef Name="COLId" />
           </Key>
           <Property Name="COLId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COL_THEId" Type="int" />
           <Property Name="COLNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="COLName" Type="nvarchar" MaxLength="50" />
           <Property Name="COLDescription" Type="nvarchar(max)" />
@@ -37,9 +36,25 @@ warning 6002: The table/view 'Swd.PlayCollector.dbo.Log' does not have a primary
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
         </EntityType>
+        <Association Name="FK_t100CollectionItem_t800Theme">
+          <End Role="t800Theme" Type="Self.t800Theme" Multiplicity="0..1" />
+          <End Role="t100CollectionItem" Type="Self.t100CollectionItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t800Theme">
+              <PropertyRef Name="THEId" />
+            </Principal>
+            <Dependent Role="t100CollectionItem">
+              <PropertyRef Name="COL_THEId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SwdPlayCollectorModelStoreContainer">
           <EntitySet Name="t100CollectionItem" EntityType="Self.t100CollectionItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t800Theme" EntityType="Self.t800Theme" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_t100CollectionItem_t800Theme" Association="Self.FK_t100CollectionItem_t800Theme">
+            <End Role="t800Theme" EntitySet="t800Theme" />
+            <End Role="t100CollectionItem" EntitySet="t100CollectionItem" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -62,10 +77,16 @@ warning 6002: The table/view 'Swd.PlayCollector.dbo.Log' does not have a primary
           <Property Name="Updated" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="COL_THEId" Type="Int32" />
+          <NavigationProperty Name="t800Theme" Relationship="Swd.PlayCollector.Business.Model.FK_t100CollectionItem_t800Theme" FromRole="CollectionItem" ToRole="Theme" />
         </EntityType>
         <EntityContainer Name="PlayCollectorDb" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CollectionItems" EntityType="Swd.PlayCollector.Business.Model.CollectionItem" />
           <EntitySet Name="Themes" EntityType="Swd.PlayCollector.Business.Model.Theme" />
+          <AssociationSet Name="FK_t100CollectionItem_t800Theme" Association="Swd.PlayCollector.Business.Model.FK_t100CollectionItem_t800Theme">
+            <End Role="Theme" EntitySet="Themes" />
+            <End Role="CollectionItem" EntitySet="CollectionItems" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Theme">
           <Key>
@@ -78,7 +99,20 @@ warning 6002: The table/view 'Swd.PlayCollector.dbo.Log' does not have a primary
           <Property Name="Updated" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="t100CollectionItem" Relationship="Swd.PlayCollector.Business.Model.FK_t100CollectionItem_t800Theme" FromRole="Theme" ToRole="CollectionItem" />
         </EntityType>
+        <Association Name="FK_t100CollectionItem_t800Theme">
+          <End Type="Swd.PlayCollector.Business.Model.Theme" Role="Theme" Multiplicity="0..1" />
+          <End Type="Swd.PlayCollector.Business.Model.CollectionItem" Role="CollectionItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CollectionItem">
+              <PropertyRef Name="COL_THEId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -88,6 +122,7 @@ warning 6002: The table/view 'Swd.PlayCollector.dbo.Log' does not have a primary
           <EntitySetMapping Name="CollectionItems">
             <EntityTypeMapping TypeName="Swd.PlayCollector.Business.Model.CollectionItem">
               <MappingFragment StoreEntitySet="t100CollectionItem">
+                <ScalarProperty Name="COL_THEId" ColumnName="COL_THEId" />
                 <ScalarProperty Name="Id" ColumnName="COLId" />
                 <ScalarProperty Name="Number" ColumnName="COLNumber" />
                 <ScalarProperty Name="Name" ColumnName="COLName" />

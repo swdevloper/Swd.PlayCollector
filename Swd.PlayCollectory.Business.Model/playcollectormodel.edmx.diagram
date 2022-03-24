@@ -7,6 +7,7 @@
       <Diagram DiagramId="82a433f02dfa4fe9bd697f416d9b83d0" Name="Diagram1">
         <EntityTypeShape EntityType="Swd.PlayCollector.Business.Model.CollectionItem" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Swd.PlayCollector.Business.Model.Theme" Width="1.5" PointX="3.375" PointY="0.75" />
+        <AssociationConnector Association="Swd.PlayCollector.Business.Model.FK_t100CollectionItem_t800Theme" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

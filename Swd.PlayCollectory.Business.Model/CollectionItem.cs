@@ -27,5 +27,8 @@ namespace Swd.PlayCollectory.Business.Model
         public Nullable<System.DateTime> Updated { get; set; }
         public string UpdatedBy { get; set; }
         public byte[] Timestamp { get; set; }
+        public Nullable<int> COL_THEId { get; set; }
+    
+        public virtual Theme t800Theme { get; set; }
     }
 }
