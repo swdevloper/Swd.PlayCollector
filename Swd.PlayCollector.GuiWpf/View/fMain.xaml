@@ -8,7 +8,7 @@
         Title="fMain" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*" MinWidth="100" MaxWidth="150"/>
             <ColumnDefinition Width="80*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -18,8 +18,18 @@
 
         
         <StackPanel Grid.Row="0" Grid.Column="0" Background="Gray">
-            <Button x:Name="btnCollection" Content="Collection" />
-            <Button x:Name="btnSettings" Content="Setting" />
+            <Button x:Name="btnCollection" ToolTip="Collection Administration">
+                <StackPanel>
+                    <Image Source="/View/imgCollection.png" Height="25" Width="25"/>
+                    <Label Content="{Binding AppCommandTextCollection}" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnSettings" ToolTip="App Settings">
+                <StackPanel>
+                    <Image Source="/View/imgSettings.png" Height="25" Width="25"/>
+                    <Label Content="{Binding AppCommandTextSettings}" />
+                </StackPanel>
+            </Button>
         </StackPanel>
         
         <Grid Grid.Row="0" Grid.Column="1">
@@ -27,38 +37,44 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Grid.Column="0" Background="Azure" Orientation="Horizontal">
+
+
+            <DockPanel Grid.Row="0" Grid.Column="0" LastChildFill="True"    >
                 
-                <Button x:Name="btnAdd" Style="{StaticResource MenueButtonStyle}"  >
-                    <StackPanel Orientation="Horizontal">
-                        <Image />
-                        <Label Content="Add..." />
-                    </StackPanel>
-                </Button>
-                <Button x:Name="btnEdit" Style="{StaticResource MenueButtonStyle}"  >
-                    <StackPanel Orientation="Horizontal">
-                        <Image />
-                        <Label Content="Edit..." />
-                    </StackPanel>
-                </Button>
-                <Button x:Name="btnDelete" Style="{StaticResource MenueButtonStyle}" >
-                    <StackPanel Orientation="Horizontal">
-                        <Image />
-                        <Label Content="Delete..." />
-                    </StackPanel>
-                </Button>
+                
+                    <Button x:Name="btnAdd" Style="{StaticResource MenueButtonStyle}" ToolTip="Adds a new collection item." >
+                    <StackPanel Orientation="Horizontal" >
+                            <Image Source="/Resources/Icons/imgAdd.png"  />
+                        <Label Content="Add..." Style="{StaticResource MenueLableStyle}" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="btnEdit" Style="{StaticResource MenueButtonStyle}" ToolTip="Edits a existing collection item."  >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/Icons/imgEdit.png"/>
+                            <Label Content="Edit..." Style="{StaticResource MenueLableStyle}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="btnDelete" Style="{StaticResource MenueButtonStyle}" ToolTip="Deletes a existing collection item." >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/Icons/imgCancel.png" />
+                            <Label Content="Delete..." Style="{StaticResource MenueLableStyle}" />
+                        </StackPanel>
+                    </Button>
+                <TextBox x:Name="txbSearch"  Style="{StaticResource WaterMarkStyle}" Tag="Search..." HorizontalAlignment="Right" Margin="0, 0, 20,0"  />
+                
 
-
- 
-                <TextBox x:Name="txbSearch" ></TextBox>
-            </StackPanel>
-            <DataGrid Grid.Row="1" Grid.Column="0">
+          
+            </DockPanel>
+            
+            
+            
+            <DataGrid Grid.Row="1" Grid.Column="0" ItemsSource="{Binding CollectionItemList}">
                 
             </DataGrid>
         </Grid>
 
         <StatusBar Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-            <Label Content="Status" />
+            <Label Content="{Binding StatusText}" />
         </StatusBar>
     </Grid>
 </Window>

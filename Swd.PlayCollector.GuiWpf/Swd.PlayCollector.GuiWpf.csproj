@@ -130,7 +130,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\imgAdd.png" />
+    <Resource Include="Resources\Icons\imgCancel.png" />
+    <Resource Include="Resources\Icons\imgCollection.png" />
+    <Resource Include="Resources\Icons\imgEdit.png" />
+    <Resource Include="Resources\Icons\imgOk.png" />
+    <Resource Include="Resources\Icons\imgSearch.png" />
+    <Resource Include="Resources\Icons\imgSettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\imgCollection.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
