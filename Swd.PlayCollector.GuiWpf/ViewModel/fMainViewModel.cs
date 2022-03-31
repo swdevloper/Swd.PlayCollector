@@ -18,8 +18,22 @@ namespace Swd.PlayCollector.GuiWpf.ViewModel
         string _appCommandTextCollection = string.Empty;
         string _appCommandTextSettings = string.Empty;
         CollectionItem _selectedCollectionItem;
+        string _searchItemText;
 
-        public List<CollectionItem> CollectionItemList { get => _collectionItemList; set => _collectionItemList = value; }
+        
+         
+        public List<CollectionItem> CollectionItemList
+            {
+            get { return _collectionItemList; }
+            set
+            {
+                _collectionItemList = value;
+                PropertyHasChanged("CollectionItemList");
+            }
+        }
+
+
+
 
         //Commands
         public RelayCommand AddCommand { get; set; }
@@ -32,8 +46,36 @@ namespace Swd.PlayCollector.GuiWpf.ViewModel
             get { return _selectedCollectionItem; }
             set { 
                 _selectedCollectionItem = value;
-                StatusText = string.Format("{0} {1}",_selectedCollectionItem.Number, _selectedCollectionItem.Name);
+                if(_selectedCollectionItem!= null)
+                {
+                    StatusText = string.Format("{0} {1}", _selectedCollectionItem.Number, _selectedCollectionItem.Name);
+                }
+                else
+                {
+                    StatusText = string.Empty;
+                }
                 PropertyHasChanged("SelectedCollectionItem");
+            }
+        }
+
+        //Search
+        public string SearchItemText
+        {
+            get { return _searchItemText; }
+            set
+            {
+                _searchItemText = value;
+                CollectionItemManager manager = new CollectionItemManager();
+                int numericValue = 0;
+                if(int.TryParse(_searchItemText, out numericValue))
+                {
+                    CollectionItemList = manager.GetAll().Where(item => item.Number.Contains(_searchItemText)).ToList();
+                }
+                else
+                {
+                    CollectionItemList = manager.GetAll().Where(item => item.Name.ToLower().Contains(_searchItemText.ToLower())).ToList();
+                }
+                PropertyHasChanged("SearchItemText");
             }
         }
 

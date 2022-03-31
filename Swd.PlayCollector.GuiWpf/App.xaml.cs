@@ -28,6 +28,7 @@ namespace Swd.PlayCollector.GuiWpf
 
             fMain w = new fMain();
             w.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //w.WindowState = WindowState.Maximized;
             w.Width = 1024;
             w.Height = 600;
             w.Title = "PlayCollector";

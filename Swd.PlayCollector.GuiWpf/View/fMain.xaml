@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Swd.PlayCollector.GuiWpf.View"
         mc:Ignorable="d"
-        Title="fMain" Height="450" Width="800">
+        Title="fMain" Height="600" Width="1024">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20*" MinWidth="100" MaxWidth="150"/>
@@ -59,14 +59,30 @@
                             <Label Content="Delete..." Style="{StaticResource MenueLableStyle}" />
                         </StackPanel>
                     </Button>
-                <TextBox x:Name="txbSearch"  Style="{StaticResource WaterMarkStyle}" Tag="Search..." HorizontalAlignment="Right" Margin="0, 0, 20,0"  />
+                <TextBox x:Name="txbSearch"  Style="{StaticResource WaterMarkStyle}" Text="{Binding SearchItemText, UpdateSourceTrigger=PropertyChanged}" Tag="Search..." HorizontalAlignment="Right" Margin="0, 0, 20,0"  />
             </DockPanel>
 
 
 
-            <DataGrid Grid.Row="1" Grid.Column="0" ItemsSource="{Binding CollectionItemList}" SelectedItem="{Binding SelectedCollectionItem}" >
-                
-                
+            <DataGrid Grid.Row="1" 
+                      Grid.Column="0"
+                      ItemsSource="{Binding CollectionItemList}"
+                      SelectedItem="{Binding SelectedCollectionItem}"
+                      AutoGenerateColumns="False"
+                      SelectionMode="Single"
+                      IsReadOnly="True"
+                      AlternationCount="2"
+                      AlternatingRowBackground="LightGray"
+                      >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Hidden" />
+                    <DataGridTextColumn Header="Number" Binding="{Binding Number}" />
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="300" />
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" ElementStyle="{StaticResource smallNumericColumn}" />
+                    <DataGridTextColumn Header="Rating" Binding="{Binding Rating}" ElementStyle="{StaticResource smallNumericColumn}"/>
+                    <DataGridTextColumn Header="Thema" Binding="{Binding Theme.Name}" />
+                </DataGrid.Columns>
             </DataGrid>
         </Grid>
 
