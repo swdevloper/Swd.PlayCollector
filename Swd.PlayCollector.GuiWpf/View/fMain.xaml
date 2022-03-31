@@ -13,20 +13,20 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
         </Grid.RowDefinitions>
 
         
         <StackPanel Grid.Row="0" Grid.Column="0" Background="Gray">
             <Button x:Name="btnCollection" ToolTip="Collection Administration">
                 <StackPanel>
-                    <Image Source="/View/imgCollection.png" Height="25" Width="25"/>
+                    <Image Source="/Resources/Icons/imgCollection.png" Height="25" Width="25"/>
                     <Label Content="{Binding AppCommandTextCollection}" />
                 </StackPanel>
             </Button>
             <Button x:Name="btnSettings" ToolTip="App Settings">
                 <StackPanel>
-                    <Image Source="/View/imgSettings.png" Height="25" Width="25"/>
+                    <Image Source="/Resources/Icons/imgSettings.png" Height="25" Width="25"/>
                     <Label Content="{Binding AppCommandTextSettings}" />
                 </StackPanel>
             </Button>
@@ -40,40 +40,40 @@
 
 
             <DockPanel Grid.Row="0" Grid.Column="0" LastChildFill="True"    >
-                
-                
-                    <Button x:Name="btnAdd" Style="{StaticResource MenueButtonStyle}" ToolTip="Adds a new collection item." >
-                    <StackPanel Orientation="Horizontal" >
+
+                <Button x:Name="btnAdd" Style="{StaticResource MenueButtonStyle}" ToolTip="Adds a new collection item." Command="{Binding AddCommand}" >
+                        <StackPanel Orientation="Horizontal" >
                             <Image Source="/Resources/Icons/imgAdd.png"  />
-                        <Label Content="Add..." Style="{StaticResource MenueLableStyle}" />
+                            <Label Content="Add..." Style="{StaticResource MenueLableStyle}" />
                         </StackPanel>
                     </Button>
-                    <Button x:Name="btnEdit" Style="{StaticResource MenueButtonStyle}" ToolTip="Edits a existing collection item."  >
+                <Button x:Name="btnEdit" Style="{StaticResource MenueButtonStyle}" ToolTip="Edits a existing collection item."  Command="{Binding EditCommand}" >
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Icons/imgEdit.png"/>
                             <Label Content="Edit..." Style="{StaticResource MenueLableStyle}"/>
                         </StackPanel>
                     </Button>
-                    <Button x:Name="btnDelete" Style="{StaticResource MenueButtonStyle}" ToolTip="Deletes a existing collection item." >
+                <Button x:Name="btnDelete" Style="{StaticResource MenueButtonStyle}" ToolTip="Deletes a existing collection item." Command="{Binding DeleteCommand}">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Icons/imgCancel.png" />
                             <Label Content="Delete..." Style="{StaticResource MenueLableStyle}" />
                         </StackPanel>
                     </Button>
                 <TextBox x:Name="txbSearch"  Style="{StaticResource WaterMarkStyle}" Tag="Search..." HorizontalAlignment="Right" Margin="0, 0, 20,0"  />
-                
-
-          
             </DockPanel>
-            
-            
-            
-            <DataGrid Grid.Row="1" Grid.Column="0" ItemsSource="{Binding CollectionItemList}">
+
+
+
+            <DataGrid Grid.Row="1" Grid.Column="0" ItemsSource="{Binding CollectionItemList}" SelectedItem="{Binding SelectedCollectionItem}" >
+                
                 
             </DataGrid>
         </Grid>
 
         <StatusBar Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label Content="Anzahl Objekte: " />
+            <Label Content="{Binding CollectionItemList.Count}" />
+            <Label Content="Ausgewähltes Objekt: " />
             <Label Content="{Binding StatusText}" />
         </StatusBar>
     </Grid>

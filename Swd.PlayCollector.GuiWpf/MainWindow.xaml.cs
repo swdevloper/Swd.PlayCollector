@@ -137,5 +137,6 @@ namespace Swd.PlayCollector.GuiWpf
 
 
         }
+
     }
 }

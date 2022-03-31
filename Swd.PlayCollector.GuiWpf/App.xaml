@@ -5,6 +5,7 @@
              Startup="Application_Startup">
     <Application.Resources>
 
+        
         <Style x:Key="MenueButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="5" />
             <Setter Property="Width" Value="100" />
@@ -18,12 +19,11 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
   
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Cursor" Value="Hand"/>
-                     </Trigger>
+                </Trigger>
             </Style.Triggers>
         </Style>
 

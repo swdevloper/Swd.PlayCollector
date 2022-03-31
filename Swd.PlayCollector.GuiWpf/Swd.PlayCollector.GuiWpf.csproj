@@ -70,6 +70,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Commands.cs" />
+    <Compile Include="Model\ObservableView.cs" />
     <Compile Include="ViewModel\fMainViewModel.cs" />
     <Compile Include="View\fMain.xaml.cs">
       <DependentUpon>fMain.xaml</DependentUpon>
@@ -128,9 +130,7 @@
       <Name>Swd.PlayCollectory.Business.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\Icons\imgAdd.png" />
     <Resource Include="Resources\Icons\imgCancel.png" />

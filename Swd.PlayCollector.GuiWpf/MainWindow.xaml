@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:Swd.PlayCollector.GuiWpf"
         mc:Ignorable="d"
         Title="PlayCollector" Height="450" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" >
+
+
+
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25*" MinWidth="280" MaxWidth="300"/>
