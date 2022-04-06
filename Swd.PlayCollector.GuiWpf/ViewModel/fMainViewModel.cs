@@ -1,12 +1,14 @@
 ﻿using playcollector.gui.wpf.Model;
 using Swd.PlayCollector.Business;
 using Swd.PlayCollector.GuiWpf.Model;
+using Swd.PlayCollector.GuiWpf.View;
 using Swd.PlayCollectory.Business.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Swd.PlayCollector.GuiWpf.ViewModel
 {
@@ -125,20 +127,28 @@ namespace Swd.PlayCollector.GuiWpf.ViewModel
 
         public void AddItem()
         {
-
+            fItem f = new fItem();
+            f.Show();
         }
 
 
 
         public void EditItem()
         {
-            
+            fItem f = new fItem(SelectedCollectionItem);
+            f.Show();
         }
 
 
         public void DeleteItem()
         {
-            
+            DialogResult result = MessageBox.Show(string.Format("Wollen Sie das Objekt {0} wirklich löschen?", SelectedCollectionItem.Name), "Objekt löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if(result==DialogResult.Yes)
+            {
+                CollectionItemManager manager = new CollectionItemManager();
+                manager.Delete(SelectedCollectionItem.Id);
+                CollectionItemList = manager.GetAll().ToList();
+            }
         }
 
 
